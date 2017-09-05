@@ -1,0 +1,16 @@
+{
+    "sections": [{
+        "title": "Menú Principal",
+        "menus": [{
+                "title": "Perfil",
+                "icon": "icon-user",
+                "href": "../perfil"
+            },
+            {
+                "title": "Buscar",
+                "icon": "icon-users",
+                "href": "../buscar"
+            }
+        ]
+    }]
+}

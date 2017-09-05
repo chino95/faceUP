@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>FaceUP | Iniciar Sesión</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="" name="description" />
+    <meta content="themes-lab" name="author" />
+    <link rel="shortcut icon" href="../assets/global/images/favicon.png">
+    <link href="../assets/global/css/style.css" rel="stylesheet">
+    <link href="../assets/global/css/ui.css" rel="stylesheet">
+    <link href="../assets/global/plugins/bootstrap-loading/lada.min.css" rel="stylesheet">
+</head>
+
+<body class="account separate-inputs" data-page="login">
+    <!-- BEGIN LOGIN BOX -->
+    <div class="container" id="login-block">
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-md-offset-4">
+                <div class="account-wall">
+                    <i class="user-img icons-faces-users-03"></i>
+                    <form class="form-signin" action="dashboard.html" role="form">
+                        <div class="append-icon">
+                            <input type="text" name="username" id="username" class="form-control form-white username" placeholder="Correo" required>
+                            <i class="icon-user"></i>
+                        </div>
+                        <div class="append-icon m-b-20">
+                            <input type="password" name="password" id="password" class="form-control form-white password" placeholder="Contraseña" required>
+                            <i class="icon-lock"></i>
+                        </div>
+                        <button type="submit" id="submit-form" class="btn btn-lg btn-danger btn-block ladda-button" data-style="expand-left">Entrar!</button>
+                        <button type="button" id="registeru" class="btn-fb btn btn-lg btn-block btn-primary">Registrate</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <p class="account-copyright">
+            <span>Copyright © 2017 </span><span>FaceUP</span>. <span>Todos los derechos reservados.</span>
+        </p>
+
+        <div class="modal fade" id="modalNew" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                        <h4 class="modal-title"><strong>Registrar</strong> Usuario</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form role="form" id="frmNew" class="form-horizontal form-validation" novalidate="novalidate">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Nickname</label>
+                                <div class="col-sm-9 prepend-icon">
+                                    <input type="text" name="nickname" id="nickname" class="form-control" placeholder="Nombre publico" minlength="3" required aria-required="true">
+                                    <i class="icon-user"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Ubicacion</label>
+                                <div class="col-sm-9 prepend-icon">
+                                    <select class="form-control" id="ubicacion" data-placeholder="Seleccione una ciudad">
+                                        
+                              </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Correo</label>
+                                <div class="col-sm-9 prepend-icon">
+                                    <input type="text" name="correo" id="correo" class="form-control" placeholder="No es un dato publico" required aria-required="true">
+                                    <i class="icon-user"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Contraseña</label>
+                                <div class="col-sm-9 prepend-icon">
+                                    <input type="password" name="psw" id="psw" class="form-control" placeholder="Mínimo 6 caracteres..." minlength="6" required aria-required="true">
+                                    <i class="icon-key"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Repetir Contraseña</label>
+                                <div class="col-sm-9 prepend-icon">
+                                    <input type="password" name="rpsw" id="rpsw" class="form-control" placeholder="Mínimo 6 caracteres..." minlength="6" required aria-required="true">
+                                    <i class="icon-key"></i>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer bg-blue">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                        <button type="submit" id="saveNew" class="btn btn-dark">Guardar</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="modaalUpdate" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content bg-primary">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icons-office-52"></i></button>
+                        <h4 class="modal-title">Modificar <strong>Usuario</strong></h4>
+                    </div>
+                    <div class="modal-body">
+
+                        <form role="form" id="frmmod" class="form-horizontal form-validation" novalidate="novalidate">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Usuario</label>
+                                <div class="col-sm-9 prepend-icon">
+                                    <input type="text" name="musername" id="musername" class="form-control" placeholder="Mínimo 6 caracteres..." minlength="6" required aria-required="true">
+                                    <i class="icon-user"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Nombre</label>
+                                <div class="col-sm-9 prepend-icon">
+                                    <input type="text" name="mnombre" id="mnombre" class="form-control" placeholder="Mínimo 6 caracteres..." minlength="6" required aria-required="true">
+                                    <i class="icon-user"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Contraseña</label>
+                                <div class="col-sm-9 prepend-icon">
+                                    <input type="password" name="mpassword" id="mpassword" class="form-control" placeholder="Mínimo 6 caracteres..." minlength="6" required aria-required="true">
+                                    <i class="icon-key"></i>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Status</label>
+                                <div class="col-sm-9 prepend-icon">
+                                    <select class="form-control" id="mstatus" data-placeholder="Seleccione un status...">
+                                <option value="Activo">Activo</option>
+                                <option value="Inactivo">Inactivo</option>
+                              </select>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal">Close</button>
+                        <button type="submit" id="btnguardar" class="btn btn-dark">Guardar</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <script src="../assets/global/plugins/jquery/jquery-1.11.1.min.js"></script>
+    <script src="../assets/global/plugins/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../assets/global/plugins/gsap/main-gsap.min.js"></script>
+    <script src="../assets/global/plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../assets/global/plugins/backstretch/backstretch.min.js"></script>
+    <script src="../assets/global/plugins/bootstrap-loading/lada.min.js"></script>
+    <script src="../assets/global/plugins/noty/jquery.noty.packaged.min.js"></script>
+    <script src="../assets/global/plugins/jquery-validation/jquery.validate.min.js"></script>
+    <script src="../assets/global/plugins/jquery-validation/additional-methods.min.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
