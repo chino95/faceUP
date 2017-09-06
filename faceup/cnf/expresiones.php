@@ -28,7 +28,7 @@ class Expresion extends ConnectionManager{
 		return json_encode($retval);
 	}
 
-	function getExpresiones(){
+	function getExpresiones($dt){
 		$retval=array('data'=>false,
 			'error'=>false,
 			'r'=>array(),
@@ -38,8 +38,9 @@ class Expresion extends ConnectionManager{
 		try{
 			$sth = $cnx->prepare("SELECT u.Nickname, e.Contenido, e.Duracion FROM expresiones e
 			INNER JOIN usuarios u ON e.ID_Usuario = u.ID_Usuario
-			WHERE e.Duracion = :fec");
+			WHERE e.Duracion = :fec && u.ID_Localizacion = :ubi");
 			  $sth->bindParam(':fec', $fechaa);
+			  $sth->bindParam(':ubi', $dt);
 			$sth->execute();
 
 			while($row = $sth->fetch(PDO::FETCH_ASSOC)){

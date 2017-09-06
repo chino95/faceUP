@@ -155,7 +155,6 @@ function getLocalizaciones() {
         function(e) {
             if (e.data == true) {
                 $("#ubicacion").html(e.r);
-                // $("#ubicacion").select2();
             } else {
                 showNotification('Error!', e.r, 'danger');
             }

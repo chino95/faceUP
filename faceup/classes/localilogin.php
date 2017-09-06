@@ -1,5 +1,5 @@
 <?php
-require_once('../../cnf/pdocnx.php');
+require_once('../cnf/pdocnx.php');
 class Localizacion extends ConnectionManager
 {
     public function getLocalizaciones()

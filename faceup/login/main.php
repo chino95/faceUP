@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['action'])){
 	include '../cnf/usuarios.php';
-	include '../classes/localizacion.php';
+	include '../classes/localilogin.php';
 	header('Content-Type: application/json');
 	
 	switch ($_POST['action']) {

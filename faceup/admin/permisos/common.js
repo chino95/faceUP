@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    Template.setUser("Ivan Zuñiga");
+    //Template.setUser("Ivan Zuñiga");
     $.getJSON('../permisos/menu.json', function(data, status, xhr) {
         Template.setMenu(data);
     });

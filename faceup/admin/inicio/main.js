@@ -1,8 +1,12 @@
 $(document).ready(function() {
     Template.setTitle({ title: "Inicio", "subtitle": "Subtítulo" });
     //showNotification('Soy la Verga', 'e we la neta si', 'success');
+    getLocalizaciones();
     getExpresiones();
     initExp();
+
+    ubica = $("#ubicacion").value;
+    console.log(ubica)
 });
 
 $("#frm").validate({
@@ -19,6 +23,12 @@ function initExp() {
         $('#' + pp).hide();
     }
 }
+$('#ubicacion').change(function() {
+    initExp();
+    getExpresiones();
+
+    return false;
+});
 
 function guardarexpresion() {
     var data = {
@@ -41,9 +51,16 @@ function guardarexpresion() {
 
 var cuentap;
 var cuentaa;
+var aux;
+var ubica;
 
 function getExpresiones() {
-    $.post('main.php', { action: "getExpresiones" },
+
+    if (ubica == "")
+        aux = 1;
+    else
+        aux = $('#ubicacion').val();
+    $.post('main.php', { dt: aux, action: "getExpresiones" },
         function(e) {
             if (e.data == true) {
                 for (var i = e.r.length - 1; i >= 0; i--) {
@@ -60,6 +77,18 @@ function getExpresiones() {
                 } else {
                     showNotification('Error!', e.r, 'danger');
                 }
+            }
+        });
+}
+
+function getLocalizaciones() {
+    $.post('main.php', { action: "getLocalizaciones" },
+        function(e) {
+            if (e.data == true) {
+                console.log(e.r)
+                $("#ubicacion").html(e.r);
+            } else {
+                showNotification('Error!', e.r, 'danger');
             }
         });
 }
