@@ -1,12 +1,12 @@
 $(document).ready(function() {
     Template.setTitle({ title: "Inicio", "subtitle": "Subtítulo" });
     //showNotification('Soy la Verga', 'e we la neta si', 'success');
-    getLocalizaciones();
+    // getLocalizaciones();
     getExpresiones();
     initExp();
 
-    ubica = $("#ubicacion").value;
-    console.log(ubica)
+    //ubica = $("#ubicacion").value;
+    //console.log(ubica)
 });
 
 $("#frm").validate({
