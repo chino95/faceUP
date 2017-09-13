@@ -55,12 +55,12 @@ var aux;
 var ubica;
 
 function getExpresiones() {
-
-    if (ubica == "")
-        aux = 1;
-    else
-        aux = $('#ubicacion').val();
-    $.post('main.php', { dt: aux, action: "getExpresiones" },
+    /* 
+        if (ubica == "")
+            aux = 1;
+        else
+            aux = $('#ubicacion').val(); */
+    $.post('main.php', { /*dt: aux,*/ action: "getExpresiones" },
         function(e) {
             if (e.data == true) {
                 for (var i = e.r.length - 1; i >= 0; i--) {

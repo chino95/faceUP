@@ -11,7 +11,8 @@ if(isset($_POST['action'])){
 		break;
 		case 'getExpresiones':
 		$obj =  new Expresion();
-		echo $obj->getExpresiones($_POST['dt']);
+		echo $obj->getExpresiones();
+		//echo $obj->getExpresiones($_POST['dt']);
 		break;
 		case 'getLocalizaciones':
 		$obj = new Localizacion();

@@ -2,14 +2,31 @@
     "sections": [{
         "title": "Menú Principal",
         "menus": [{
-                "title": "Perfil",
+                "title": "Menu",
+                "submenus": [{
+                    "title": "Inicio",
+                    "href": "../inicio/"
+                }]
+            }, {
+                "title": "Usuario",
                 "icon": "icon-user",
-                "href": "../perfil"
+                "submenus": [{
+                        "title": "Mis expresiones",
+                        "href": "../perfil/"
+                    },
+                    {
+                        "title": "Mensajes",
+                        "href": "../mensajes/"
+                    }
+                ]
             },
             {
-                "title": "Buscar",
+                "title": "Veamos algo mas!",
                 "icon": "icon-users",
-                "href": "../buscar"
+                "submenus": [{
+                    "title": "Buscar",
+                    "href": "../buscar/"
+                }]
             }
         ]
     }]

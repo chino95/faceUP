@@ -28,7 +28,7 @@ class Expresion extends ConnectionManager{
 		return json_encode($retval);
 	}
 
-	function getExpresiones($dt){
+	function getExpresiones(){
 		$retval=array('data'=>false,
 			'error'=>false,
 			'r'=>array(),
@@ -38,9 +38,37 @@ class Expresion extends ConnectionManager{
 		try{
 			$sth = $cnx->prepare("SELECT u.Nickname, e.Contenido, e.Duracion FROM expresiones e
 			INNER JOIN usuarios u ON e.ID_Usuario = u.ID_Usuario
-			WHERE e.Duracion = :fec && u.ID_Localizacion = :ubi");
+			WHERE e.Duracion = :fec");
 			  $sth->bindParam(':fec', $fechaa);
-			  $sth->bindParam(':ubi', $dt);
+			$sth->execute();
+
+			while($row = $sth->fetch(PDO::FETCH_ASSOC)){
+				$retval['data']=true;
+				array_push($retval['r'], array($row['Nickname'], $row['Contenido'], $row['Duracion']));
+			}
+		}
+		catch(PDOException $e){
+			$retval['error']=true;
+			$retval['r']=$e->getMessage();
+		}
+		return json_encode($retval);
+	}
+
+	function getExpresionesU(){
+		$retval=array('data'=>false,
+			'error'=>false,
+			'r'=>array(),
+			);
+			$fechaa=date('Y/m/d'); 
+			session_start();
+			$id = $_SESSION['data']['id'];
+		$cnx = $this-> connectMysql();
+		try{
+			$sth = $cnx->prepare("SELECT u.Nickname, e.Contenido, e.Duracion FROM expresiones e
+			INNER JOIN usuarios u ON e.ID_Usuario = u.ID_Usuario
+			WHERE e.Duracion = :fec && e.ID_Usuario = :id");
+			  $sth->bindParam(':fec', $fechaa);
+			  $sth->bindParam(':id', $id);
 			$sth->execute();
 
 			while($row = $sth->fetch(PDO::FETCH_ASSOC)){
