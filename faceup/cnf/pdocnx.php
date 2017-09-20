@@ -1,10 +1,10 @@
 <?php
 
 class ConnectionManager {
-    
+    // "server=localhost; database=FerreteriaL1; Uid=root; pwd=1234;"
     private $server="localhost";
     private $usr="root";
-    private $psw="";
+    private $psw="1234";
     private $db="faceupbd";
     
     public function connectMysql()

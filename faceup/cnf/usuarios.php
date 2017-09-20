@@ -64,7 +64,7 @@ class Usuarios extends ConnectionManager{
 			'c'=>array(array('title'=>'ID'),array('title'=>'Usuario'),array('title'=>'Nombre'),array('title'=>'Status'),array('title'=>'Accion')));
 		$cnx = $this-> connectMysql();
 		try{
-			$sth = $cnx->prepare("SELECT id_user, nombre, username, status FROM users");
+			$sth = $cnx->prepare("SELECT id_user, nombre, username, status FROM users ");
 			$sth->execute();
 
 			while($row = $sth->fetch(PDO::FETCH_ASSOC)){

@@ -43,3 +43,33 @@ function initExp() {
         $('#' + pp).hide();
     }
 }
+
+function mensaje(numer){
+    var uno=$( "textarea[name*='mensaje']" ).val();
+    
+    $("#modalNew").modal('hide');
+
+    var sendObj = {
+        men: uno,
+        usu: numer
+    };
+    $.post('main.php', { dt: sendObj, action: "enviar" },
+        function(e) {
+            if (e.data == true) {
+                showNotification('Mensaje enviado', 'correctos', 'success');
+                $( "textarea[name*='mensaje']" ).val(' ');
+            } else {
+                showNotification('No se puede enviar', 'incorrectos', 'danger');
+            }
+            l.stop();
+        });
+
+    return false;
+
+}
+
+function MostrarModal(a) {
+    $("#modalNew").modal();
+    //onclick="mensaje(-1)"
+    $("#saveNew").attr('onclick','mensaje('+a+')');
+}
